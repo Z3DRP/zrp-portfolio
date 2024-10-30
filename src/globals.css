@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.ubuntu-sans-z{
+  font-family: "Ubuntu Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: fontWeightBold;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+:root {
+  --background: #c4dad2;
+  --foreground: #6a9c89;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #697565;
+    --foreground: #3C3D37;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Ubuntu Sans", sans-serif, Arial, Helvetica;
+  background-image: url("./assets/images/bg1.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
