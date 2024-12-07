@@ -22,9 +22,13 @@ function Navbar({ toggleTheme, theme }) {
   const handleMenuClose = (event) => setMenuAnchor(undefined);
 
   return (
-    <AppBar position="static" color="primary" className="shadow-lg">
+    <AppBar
+      position="static"
+      color="primary"
+      className="shadow-lg opacity-80 bg-neutral-800"
+    >
       <Toolbar>
-        <Typography variant="h6" className="flex-grow">
+        <Typography variant="h6" className="flex-grow text-primorange">
           Zach Palmer
         </Typography>
 

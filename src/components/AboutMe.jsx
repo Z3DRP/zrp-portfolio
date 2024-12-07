@@ -170,7 +170,7 @@ export default function AboutMe() {
           flexDirection="row"
           alignItems="space-between"
         >
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={5}>
             <section
               id="about-card"
               className="col-span-5 row-span-1 grid grid-rows-3 bg-dgreen text-lgreen rounded-md mt-4 ml-4 w-full border-l-white"
@@ -235,17 +235,17 @@ export default function AboutMe() {
               </div>
             </section>
           </Grid>
-          <Grid item xs={3} md={3}>
+          <Grid item xs={3} md={4}>
             <section
               id="experience-container"
               className="col-span-4 row-span-1 w-full m-2 ml-8"
             >
               <button
-                className={`flex flex-row w-full text-lg font-semibold bg-lgreen dark:bg-mgreen text-dgreen dark:text-dmgreen px-4 py-2 rounded mt-4 mb-4 focus:outline-none hover:bg-dlgreen dark:hover:bg-dlgreen`}
+                className={`flex flex-row w-full text-lg font-semibold bg-neutral-800 dark:bg-neutral-800 text-primorange dark:text-primorange px-4 py-2 rounded mt-4 mb-4 focus:outline-none hover:bg-dlgreen dark:hover:bg-dlgreen`}
               >
-                <span className="mr-4">Experience</span>
+                <span className="mr-4 text-gwhite">Experience</span>
               </button>
-              <div className="p-4 bg-mgreen  dark:bg-dmgreen rounded-md shadow-lg overflow-y-auto scroll-smooth max-h-80">
+              <div className="p-4 bg-neutral-800  dark:bg-neutral-800 text-primorange rounded-md shadow-lg overflow-y-auto scroll-smooth max-h-80">
                 <div className="grid grid-col-1 gap-4 overflow-y-scroll">
                   {portfolioData?.ProfessionalExperience?.length > 0 ? (
                     portfolioData?.ProfessionalExperience.map((xp) => (
@@ -268,7 +268,7 @@ export default function AboutMe() {
                       </div>
                     ))
                   ) : (
-                    <p>No Experience</p>
+                    <Typography variant="subtitle1">No Experience</Typography>
                   )}
                 </div>
               </div>
@@ -281,9 +281,9 @@ export default function AboutMe() {
             >
               <button
                 onClick={toggleSkillsSection}
-                className={`flex flex-row justify-between w-full text-lg font-semibold bg-lgreen dark:bg-mgreen text-dgreen dark:text-dmgreen px-4 py-2 rounded mt-4 mb-4 focus:outline-none hover:bg-dlgreen dark:hover:bg-dlgreen`}
+                className={`flex flex-row justify-between w-full text-lg font-semibold bg-neutral-800 dark:bg-mgreen text-primorange dark:text-primorange px-4 py-2 rounded mt-4 mb-4 focus:outline-none hover:bg-dlgreen dark:hover:bg-dlgreen`}
               >
-                <span className="mr-4">Skills</span>{" "}
+                <span className="mr-4 text-gwhite">Skills</span>{" "}
                 {isSkillsOpen ? (
                   <ChevronsUp size={24} />
                 ) : (
@@ -292,23 +292,23 @@ export default function AboutMe() {
               </button>
 
               <div
-                className={`transition-max-height duration-700 ease-in-out overflow-hidden ${
+                className={`transition-max-height duration-700 ease-in-out overflow-hidden bg-neutral-800 ${
                   isSkillsOpen ? "max-h-44" : "max-h-0"
                 }
                             `}
               >
-                <div className="p-4 dark:bg-dmgreen rounded-md shadow overflow-y-auto scroll-smooth max-h-44">
+                <div className="p-4 dark:bg-dmgreen rounded-md shadow overflow-y-auto scroll-smooth max-h-44 border-red-50">
                   <input
                     onChange={handleSearch}
-                    placeholder="Search the technologies I used..."
-                    className="border rounded p-2 w-full mb-4 text-dgreen"
+                    placeholder="Search the technologies I use..."
+                    className="border rounded p-2 w-full mb-4 text-black"
                   />
                   <article className="grid grid-cols-1 gap-4">
                     {filteredSkills?.length > 0 ? (
                       filteredSkills.map((skill) => (
                         <div
                           key={skill?.Id}
-                          className="relative flex flex-row justify-start items-center bg-dgreen dark:ddgreen text-mgreen dark:text-dmgreen rounded-md shadow"
+                          className="relative flex flex-row justify-start items-center bg-dgreen dark:ddgreen text-lgreen dark:text-lgreen rounded-md shadow"
                         >
                           <div className="flex flex-row justify-center items-center mr-24 mt-0 mb-0 ml-0 bg-neutral-800 w-full rounded-l-md rounded-r-3xl">
                             <div className="top-2 left-2 p-2 rounded-tr-md rounded-br-sm text-orange-500">
@@ -324,10 +324,13 @@ export default function AboutMe() {
                         </div>
                       ))
                     ) : (
-                      <h3>
+                      <Typography
+                        variant="subtitle1"
+                        className="text-primorange"
+                      >
                         I seem not to have that skill or it is something I am
                         just starting to learn...
-                      </h3>
+                      </Typography>
                     )}
                   </article>
                 </div>
