@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 
-.ubuntu-sans-z{
+.ubuntu-sans-z {
   font-family: "Ubuntu Sans", serif;
   font-optical-sizing: auto;
   font-weight: fontWeightBold;

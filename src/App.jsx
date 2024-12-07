@@ -1,19 +1,22 @@
-import Header from "./components/Header"
-import Router from "./zrouter/router"
-import ErrorBoundary from "./errorboundry/errorboundaries"
-import "./globals.css"
+import Header from "./components/Header";
+import Router from "./zrouter/router";
+import "./globals.css";
+import PropTypes from "prop-types";
 
-function App() {
+function App({ toggleTheme, theme }) {
   return (
     <>
-      <Header />
-      <ErrorBoundary>
-        <main className=" opacity-80">
-            <Router />
-        </main>
-      </ErrorBoundary>
-    </>    
-  )
+      <Header toggleTheme={toggleTheme} theme={theme} />
+      <main className="opacity-80">
+        <Router />
+      </main>
+    </>
+  );
 }
 
-export default App
+App.propTypes = {
+  theme: PropTypes.oneOf(["light", "dark"]).isRequired,
+  toggleTheme: PropTypes.func.isRequired,
+};
+
+export default App;
