@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSnackbar } from "notistack";
 import "../globals.css";
 import {
   ChevronsDown,
@@ -30,7 +31,7 @@ import {
 } from "@mui/material";
 
 export default function AboutMe() {
-  const toast = useToast();
+  const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [portfolioData, setPortfolioData] = useState(undefined);
@@ -60,16 +61,19 @@ export default function AboutMe() {
   //     setIsAnswerOpen(!isAnswerOpen)
   // }
   const handleErrorToast = (msg, type) => {
-    toast.open(<ErrorToast type={type} msg={msg.toString()} />);
+    //toast.open(<ErrorToast type={type} msg={msg.toString()} />);
+    enqueueSnackbar(msg.toString(), { variant: msg.type });
   };
 
   const handleShowToast = useCallback((msg, type) => {
     switch (type.toLowerCase()) {
       case "error":
-        toast.open(<ErrorToast type={type} msg={msg.message} />);
+        //toast.open(<ErrorToast type={type} msg={msg.message} />);
+        enqueueSnackbar(msg.message, { variant: msg.type });
         break;
       case "success":
-        toast.open(<SuccessToast type={type} msg={msg} />);
+        //toast.open(<SuccessToast type={type} msg={msg} />);
+        enqueueSnackbar(msg.message, { variant: msg.type });
         break;
     }
   });

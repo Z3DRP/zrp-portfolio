@@ -30,7 +30,7 @@ export default function Root() {
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <CssBaseline />
         <ErrorBoundary>
-          <SnackbarProvider>
+          <SnackbarProvider autoHideDuration={1500} maxSnack={10}>
             <BrowserRouter>
               <App toggleTheme={toggleTheme} theme={theme} />
             </BrowserRouter>
