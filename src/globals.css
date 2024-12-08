@@ -18,6 +18,29 @@
   --foreground: #6a9c89;
 }
 
+iframe {
+  display: block;
+  /* Ensures it behaves like a block element */
+  margin: 0 auto;
+  /* Centers the iframe horizontally */
+  border: none;
+  /* Removes border for cleaner appearance */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+}
+
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+  /* Enables scrolling */
+}
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #697565;
@@ -34,6 +57,7 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  height: 100;
 }
 
 @layer utilities {

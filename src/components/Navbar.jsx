@@ -25,9 +25,9 @@ function Navbar({ toggleTheme, theme }) {
     <AppBar
       position="static"
       color="primary"
-      className="shadow-lg opacity-80 bg-neutral-800"
+      className="shadow-lg opacity-80 bg-neutral-800 dark:bg-neutral-800"
     >
-      <Toolbar>
+      <Toolbar className="dark:bg-neutral-800">
         <Typography variant="h6" className="flex-grow text-primorange">
           Zach Palmer
         </Typography>

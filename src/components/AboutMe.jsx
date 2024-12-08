@@ -12,6 +12,7 @@ import {
   Linkedin,
   Brain,
 } from "lucide-react";
+import { NavLink } from "react-router-dom";
 import { useToast } from "./ToastService";
 import hellIfIknow from "../assets/images/hellifiknow.png";
 import Spinner from "./Spinner";
@@ -62,18 +63,18 @@ export default function AboutMe() {
   // }
   const handleErrorToast = (msg, type) => {
     //toast.open(<ErrorToast type={type} msg={msg.toString()} />);
-    enqueueSnackbar(msg.toString(), { variant: msg.type });
+    enqueueSnackbar(msg, { variant: "error" });
   };
 
   const handleShowToast = useCallback((msg, type) => {
     switch (type.toLowerCase()) {
       case "error":
         //toast.open(<ErrorToast type={type} msg={msg.message} />);
-        enqueueSnackbar(msg.message, { variant: msg.type });
+        enqueueSnackbar(msg, { variant: "error" });
         break;
       case "success":
         //toast.open(<SuccessToast type={type} msg={msg} />);
-        enqueueSnackbar(msg.message, { variant: msg.type });
+        enqueueSnackbar(msg, { variant: "success" });
         break;
     }
   });
@@ -120,7 +121,7 @@ export default function AboutMe() {
           setFilteredSkills(pdata?.Skills);
           handleShowToast("successfully retrieved portfolio data", "success");
         } else {
-          console.loig(`[ERROR-RES]:: ${res}`);
+          console.log(`[ERROR-RES]:: ${res}`);
           handleShowToast(
             "An Internal Server Error occurred while fetching data",
             "error",
@@ -230,10 +231,7 @@ export default function AboutMe() {
                 >
                   <Github size={24} />
                 </button>
-                <button
-                  className="text-lgreen hover:text-orange-500 dark:hover:text-orange-600"
-                  onClick={handleNavToResume}
-                >
+                <button className="text-lgreen hover:text-orange-500 dark:hover:text-orange-600">
                   <FileUser size={24} />
                 </button>
               </div>
@@ -255,7 +253,7 @@ export default function AboutMe() {
                     portfolioData?.ProfessionalExperience.map((xp) => (
                       <div
                         key={xp.Id}
-                        className="flex flex-col bg-dgreen dark:bg-ddgreen text-lgreen dark:text-mgreen md:justify-between space-y-2 rounded shadow"
+                        className="flex flex-col bg-dgreen dark:bg-ddgreen text-lgreen dark:text-mgreen md:justify-between space-y-2 border border-m-white rounded shadow"
                       >
                         <div className="bg-neutral-800 font-semibold w-full flex flex-row align-middle justify-items-center rounded-md px-2 py-4">
                           <div className="mx-2 text-orange-500">
@@ -312,7 +310,7 @@ export default function AboutMe() {
                       filteredSkills.map((skill) => (
                         <div
                           key={skill?.Id}
-                          className="relative flex flex-row justify-start items-center bg-dgreen dark:ddgreen text-lgreen dark:text-lgreen rounded-md shadow"
+                          className="relative flex flex-row justify-start items-center bg-dgreen dark:ddgreen text-lgreen dark:text-lgreen rounded-md shadow border border-m-white"
                         >
                           <div className="flex flex-row justify-center items-center mr-24 mt-0 mb-0 ml-0 bg-neutral-800 w-full rounded-l-md rounded-r-3xl">
                             <div className="top-2 left-2 p-2 rounded-tr-md rounded-br-sm text-orange-500">

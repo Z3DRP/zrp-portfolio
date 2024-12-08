@@ -19,7 +19,7 @@ export const lightTheme = createTheme({
       primary: "#e9efec",
       secondary: "#767f7d",
     },
-    divider: "#e9efec",
+    divider: "#262626",
   },
   typography: {
     fontFamily: ["Ubuntu", "sans-serif"].join(","),
@@ -43,9 +43,9 @@ export const darkTheme = createTheme({
     },
     text: {
       primary: "#e9efec",
-      secondary: "#767f7d",
+      secondary: "#262626",
     },
-    divider: "#e9efec",
+    divider: "#262626",
   },
   typography: {
     fontFamily: ["Ubuntu", "sans-serif"].join(","),

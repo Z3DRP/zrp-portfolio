@@ -1,7 +1,7 @@
 import AboutMe from "../components/AboutMe";
 import ResumeViewer from "../components/ResumeViewer";
 
-const creatureApiUrl = import.meta.env.VITE_CREATURE_API;
+//const creatureApiUrl = import.meta.env.VITE_CREATURE_API;
 
 const PagesData = [
   {
@@ -16,13 +16,12 @@ const PagesData = [
     title: "Resume",
     external: false,
   },
-  {
-    path: creatureApiUrl,
-    element: "",
-    title: "Creature Creator",
-    external: true,
-  },
+  //  {
+  //    path: creatureApiUrl,
+  //    element: "",
+  //    title: "Creature Creator",
+  //    external: true,
+  //  },
 ];
 
 export default PagesData;
-

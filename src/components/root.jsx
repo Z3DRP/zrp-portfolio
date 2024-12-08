@@ -22,7 +22,7 @@ export default function Root() {
   const toggleTheme = () => {
     const selectedTheme = theme === "light" ? "dark" : "light";
     setTheme(selectedTheme);
-    localStorage.setItem(selectedTheme);
+    localStorage.setItem("theme", selectedTheme);
   };
 
   return (
@@ -30,7 +30,11 @@ export default function Root() {
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <CssBaseline />
         <ErrorBoundary>
-          <SnackbarProvider autoHideDuration={1500} maxSnack={10}>
+          <SnackbarProvider
+            anchorOrign={{ vertical: "top", horizontal: "right" }}
+            autoHideDuration={15000}
+            maxSnack={10}
+          >
             <BrowserRouter>
               <App toggleTheme={toggleTheme} theme={theme} />
             </BrowserRouter>
