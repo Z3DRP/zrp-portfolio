@@ -24,7 +24,7 @@ export default function ZypherForm({
   hashCount,
 }) {
   return (
-    <form className="w-full max-w-3xl mt-4">
+    <form className="lg:w-full md:max-w-xl lg:max-w-3xl mt-4">
       <div className="flex flex-col -mr-6">
         <div
           id="row-1"
@@ -130,13 +130,13 @@ export default function ZypherForm({
           </div>
         </div>
         <div className="flex flex-col w-full">
-          <div className="mt-4 w-full">
+          <div className="mt-4 lg:w-full">
             {isLoading && <Spinner />}
             {hasError && <h3 className="text-red-500">An error occurred</h3>}
             {!isLoading && !hasError && (
               <>
                 <textarea
-                  className="px-2 w-full bg-gwhite rounded-md border-none text-dgreen mb-2"
+                  className="px-2 lg:w-full md:max-w-3xl bg-gwhite rounded-md border-none text-dgreen mb-2"
                   rows="5"
                   cols="76"
                   value={result}
@@ -149,7 +149,7 @@ export default function ZypherForm({
             variant="contained"
             onClick={handleZypher}
             disabled={isLoading}
-            className="w-full bg-primorange text-neutral-800 h-12 border-l-2 border-l-white p-4 rounded-md font-semibold text-lg hover:bg-porange"
+            className="lg:w-full bg-primorange text-neutral-800 h-12 border-l-2 border-l-white p-4 rounded-md font-semibold  lg:text-lg md:max-w-3xl md:mr-8 mr-2 hover:bg-porange"
           >
             <span className="mr-2">
               <Hash size={24} />
@@ -161,7 +161,7 @@ export default function ZypherForm({
             variant="outlined"
             color="secondary"
             onClick={handleClear}
-            className="p-4 my-4 text-primorange hover:bg-porange hover:text-dmgreen dark:text-ddgreen rounded-md w-full text-lg font- mr-2 mt-2 h-12"
+            className="lg:w-full p-4 my-4 text-primorange hover:bg-porange hover:text-dmgreen dark:text-ddgreen rounded-md lg:text-lg font-semibold md:max-w-3xl md:mr-8 mr-2 mt-2 h-12"
             disabled={isLoading}
           >
             <span className="mr-2">
@@ -194,4 +194,3 @@ ZypherForm.propTypes = {
   alternate: PropTypes.bool.isRequired,
   ignoreSpace: PropTypes.bool.isRequired,
 };
-

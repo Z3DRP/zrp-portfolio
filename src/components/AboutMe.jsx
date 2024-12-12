@@ -30,6 +30,7 @@ import {
   Box,
   Button,
 } from "@mui/material";
+import Description from "./portfolioDescription";
 
 export default function AboutMe() {
   const { enqueueSnackbar } = useSnackbar();
@@ -167,13 +168,13 @@ export default function AboutMe() {
 
   return (
     <>
-      <Stack spacing={3} className="m-3">
+      <Stack spacing={2} className="m-3">
         <Grid
           container
-          spacing={2}
+          spacing={1}
           display="flex"
           flexDirection="row"
-          alignItems="space-between"
+          alignItems="space-around"
         >
           <Grid item xs={12} md={5}>
             <section
@@ -276,14 +277,14 @@ export default function AboutMe() {
               </div>
             </section>
           </Grid>
-          <Grid item xs={3} md={2}>
+          <Grid item xs={3} md={1}>
             <section
-              className="col-span-2 row-span-1 w-96 ml-8"
+              className="col-span-2 row-span-1 lg:w-96 md:max-w-80 md:ml-12"
               id="skill-container"
             >
               <button
                 onClick={toggleSkillsSection}
-                className={`flex flex-row justify-between w-full text-lg font-semibold bg-neutral-800 dark:bg-mgreen text-primorange dark:text-primorange px-4 py-2 rounded mt-4 mb-4 focus:outline-none hover:bg-dlgreen dark:hover:bg-dlgreen`}
+                className={`flex flex-row justify-between lg:w-full md:max-w-80 text-lg font-semibold bg-neutral-800 dark:bg-mgreen text-primorange dark:text-primorange px-4 py-2 rounded mt-4 mb-4 focus:outline-none hover:bg-dlgreen dark:hover:bg-dlgreen`}
               >
                 <span className="mr-4 text-gwhite">Skills</span>{" "}
                 {isSkillsOpen ? (
@@ -294,7 +295,7 @@ export default function AboutMe() {
               </button>
 
               <div
-                className={`transition-max-height duration-700 ease-in-out overflow-hidden bg-neutral-800 ${
+                className={`transition-max-height duration-700 ease-in-out overflow-hidden bg-neutral-800 lg:w-full md:max-w-80 ${
                   isSkillsOpen ? "max-h-44" : "max-h-0"
                 }
                             `}
@@ -339,6 +340,9 @@ export default function AboutMe() {
               </div>
             </section>
           </Grid>
+        </Grid>
+        <Grid item>
+          <Description xs={12} className="mx-3" />
         </Grid>
         <Grid container>
           <Grid item xs={12} className="mx-3">
