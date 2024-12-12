@@ -11,14 +11,7 @@ export default function ResumeViewer() {
   const onDocumentLoadSuccess = ({ numberOfPages }) => {
     setNumberOfPages(numberOfPages);
   };
-  const iframe = document.querySelector("iframe");
 
-  // Set iframe size to match viewport
-  iframe.style.width = "100%";
-  iframe.style.height = "100vh";
-  iframe.style.display = "block";
-
-  // Reset margins and allow scrolling
   document.body.style.margin = "0";
   document.body.style.overflow = "auto";
 
@@ -27,13 +20,11 @@ export default function ResumeViewer() {
       <Box className="h-full border-2 border-gray-200 shadow-lg rounded overflow-hidden mb-4">
         <iframe
           src={resumePdf}
+          style={{ height: "100vh", width: "100%", display: "block" }}
           alt="zach palmer logo"
           className="w-full h-full overflow-y-auto"
           title="Zach Palmer Resume"
         />
-        {
-          //<Viewer fileUrl={resumePdf} />
-        }
       </Box>
     </Container>
   );
