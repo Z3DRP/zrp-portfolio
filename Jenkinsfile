@@ -30,11 +30,6 @@ pipeline {
 		}
 		stage('Update F Server') {
 			steps {
-					sh 'pwd'
-					sh 'ls -l'
-					sh 'ls -l zrp-portfolio/ || echo "zrp dist not found"'
-					sh 'ls -l z3-server/ || echo "z3 dir not found"'
-					sh 'ls -l z3-server/'
 					sh 'rm -rf z3-server/dist'
 					sh 'cp -R dist z3-server/ '
 			}
@@ -42,15 +37,15 @@ pipeline {
 		stage('Comit and Push z3') {
 			steps {
 				dir('z3-server') {
-				withCredentials([string(credentialsId: 'gh-tkn-str', variable: 'TKN')]) {
-						sh '''
-							git config user.name "CI"
-							git config user.email "apex1421@outlook.com"
-							git add .
-							git commit -m "Update from job"
-							git push https://CI:${TKN}@github.com/Z3DRP/z3-server.git main
-							'''
-				}
+					withCredentials([string(credentialsId: 'gh-tkn-str', variable: 'TKN')]) {
+							sh '''
+								git config user.name "CI"
+								git config user.email "apex1421@outlook.com"
+								git add .
+								git commit -m "Update from job" || echo "Nothing to commit"
+								git push https://CI:${TKN}@github.com/Z3DRP/z3-server.git main
+								'''
+					}
 				}
 			}
 		}
