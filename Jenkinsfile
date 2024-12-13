@@ -44,8 +44,8 @@ pipeline {
 					sh 'ls -l zrp-portfolio/ || echo "zrp dist not found"'
 					sh 'ls -l z3-server/ || echo "z3 dir not found"'
 					sh 'ls -l z3-server/'
-					sh 'rm -rf z3-server/dist'
-					sh 'cp -R $BUILD_DIR z3-server/ '
+					sh 'rm -rf $FS_DIST'
+					sh 'cp -R $FE_DIST $FS_DIST/ '
 			}
 		}
 		stage('Comit and Push z3') {
