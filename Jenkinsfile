@@ -56,7 +56,7 @@ pipeline {
 					git config user.email "apex1421@outlook.com"
 					git add .
 					git commit -m "Update from job"
-					git push origin main
+					git push https://${gh-tkn}@github.com/Z3DRP/z3-server.git main
 					'''
 				}
 			}
