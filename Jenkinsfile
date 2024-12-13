@@ -46,7 +46,7 @@ pipeline {
 				}
 			}
 		}
-		stage('Comit and Push') {
+		stage('Comit and Push z3') {
 			steps {
 				dir('z3-server') {
 					sh '''
