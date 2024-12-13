@@ -30,8 +30,8 @@ pipeline {
 			steps {
 				dir('zrp-portfolio') {
 					sh 'pwd'
-					sh 'ls -l'
-					sh 'ls -l dist || echo "No root dist"'
+					sh 'ls -l ../'
+					sh 'ls -l ../dist || echo "No root dist"'
 				}
 			}
 		}
