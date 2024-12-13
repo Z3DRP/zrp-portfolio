@@ -26,9 +26,6 @@ pipeline {
 					sh 'npm ci'
 					sh 'npm run build || echo "Build Failed"'
 				}
-				script {
-					env.BUILD_DIR = "../dist"
-				}
 			}
 		}
 		stage('debug dist') {
