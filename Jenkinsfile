@@ -8,7 +8,7 @@ pipeline {
 		FS_REPO = 'https://github.com/Z3DRP/z3-server.git'
 	}
 	stages {
-		stage('Clone Repos') {
+		stage('Clone z3 server') {
 			steps {
 				script {
 					echo "zrp-portfolio cloned automatically from SCM"
