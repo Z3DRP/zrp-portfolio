@@ -25,7 +25,7 @@ pipeline {
 					sh 'npm run build || echo "Build Failed"'
 				}
 				script {
-					env.BUILD_DIR = "${env.WORKSPACE}/zrp-portfolio/dist"
+					env.BUILD_DIR = ../dist
 				}
 			}
 		}
