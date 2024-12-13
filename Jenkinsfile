@@ -40,6 +40,7 @@ pipeline {
 				
 				dir("${env.WORKSPACE}") {
 					sh 'pwd'
+					sh 'ls -l'
 					sh 'ls -l zrp-portfolio/dist || echo "zrp dist not found"'
 					sh 'ls -l z3-server || echo "z3 dir not found"'
 					sh 'ls -l z3-server/dist'
