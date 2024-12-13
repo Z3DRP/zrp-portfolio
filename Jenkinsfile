@@ -5,7 +5,7 @@ pipeline {
 	}
 	environment {
 		FE_REPO = 'https://github.com/Z3DRP/zrp-portfolio.git'
-		FS_REPO = 'https://github.com/Z3DRP/z3-sever.git'
+		FS_REPO = 'https://github.com/Z3DRP/z3-server.git'
 	}
 	stages {
 		stage('Clone Repos') {
