@@ -21,7 +21,7 @@ pipeline {
 		stage('Build Front End') {
 			steps {
 				dir('zrp-portfolio') {
-					sh 'npm install'
+					sh 'npm ci'
 					sh 'npm run build'
 				}
 			}
