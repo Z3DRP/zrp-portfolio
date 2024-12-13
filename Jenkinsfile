@@ -6,6 +6,8 @@ pipeline {
 	environment {
 		FE_REPO = 'https://github.com/Z3DRP/zrp-portfolio.git'
 		FS_REPO = 'https://github.com/Z3DRP/z3-server.git'
+		FE_DIST = '/var/jenkins_home/workspace/portfolio-frontend-deployment/zrp-portfolio/dist'
+		FS_DIST = '/var/jenkins_home/workspace/portfolio-frontend-deployment/z3-server'
 	}
 	stages {
 		stage('Clone z3 server') {
@@ -25,7 +27,7 @@ pipeline {
 					sh 'npm run build || echo "Build Failed"'
 				}
 				script {
-					env.BUILD_DIR = ../dist
+					env.BUILD_DIR = "../dist"
 				}
 			}
 		}
