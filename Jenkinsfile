@@ -26,10 +26,18 @@ pipeline {
 				}
 			}
 		}
+		stage('debug dist') {
+			steps {
+				dir('zrp-portfolio') {
+					sh 'ls -l dist'
+				}
+			}
+		}
 		stage('Update F Server') {
 			steps {
 				dir('z3-server') {
 					sh 'rm -rf dist'
+					sh 'ls -l ../zrp-portfolio/dist'
 					sh 'cp -R ../zrp-portfolio/dist ./'
 				}
 			}
