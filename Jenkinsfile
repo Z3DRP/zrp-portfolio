@@ -51,13 +51,15 @@ pipeline {
 		stage('Comit and Push z3') {
 			steps {
 				dir('z3-server') {
-					sh '''
-					git config user.name "Jenkins-CI"
-					git config user.email "apex1421@outlook.com"
-					git add .
-					git commit -m "Update from job"
-					git push https://${gh-tkn}@github.com/Z3DRP/z3-server.git main
-					'''
+				withCredentials([string(credentialsId: 'gh-tkn', variable: 'TKN')]) {
+						sh '''
+							git config user.name "Jenkins-CI"
+							git config user.email "apex1421@outlook.com"
+							git add .
+							git commit -m "Update from job"
+							git push https://${gh-tkn}@github.com/Z3DRP/z3-server.git main
+							'''
+				}
 				}
 			}
 		}
