@@ -28,15 +28,6 @@ pipeline {
 				}
 			}
 		}
-		stage('debug dist') {
-			steps {
-				dir('zrp-portfolio') {
-					sh 'pwd'
-					sh 'ls -l ../'
-					sh 'ls -l ../dist || echo "No root dist"'
-				}
-			}
-		}
 		stage('Update F Server') {
 			steps {
 					sh 'pwd'
@@ -53,11 +44,11 @@ pipeline {
 				dir('z3-server') {
 				withCredentials([string(credentialsId: 'gh-tkn-str', variable: 'TKN')]) {
 						sh '''
-							git config user.name "Jenkins-CI"
+							git config user.name "CI"
 							git config user.email "apex1421@outlook.com"
 							git add .
 							git commit -m "Update from job"
-							git push https://Jenkins-CI:${TKN}@github.com/Z3DRP/z3-server.git main
+							git push https://CI:${TKN}@github.com/Z3DRP/z3-server.git main
 							'''
 				}
 				}
