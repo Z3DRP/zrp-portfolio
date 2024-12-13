@@ -29,7 +29,7 @@ pipeline {
 		stage('debug dist') {
 			steps {
 				dir('zrp-portfolio') {
-					sh 'ls -l dist'
+					sh 'ls -l zrp-portfolio/dist'
 				}
 			}
 		}
