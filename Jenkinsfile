@@ -24,6 +24,9 @@ pipeline {
 					sh 'npm ci'
 					sh 'npm run build || echo "Build Failed"'
 				}
+				script {
+					env.BUILD_DIR = "${env.WORKSPACE}/zrp-portfolio/dist"
+				}
 			}
 		}
 		stage('debug dist') {
@@ -37,16 +40,13 @@ pipeline {
 		}
 		stage('Update F Server') {
 			steps {
-				
-				dir("${env.WORKSPACE}") {
 					sh 'pwd'
 					sh 'ls -l'
 					sh 'ls -l zrp-portfolio/ || echo "zrp dist not found"'
 					sh 'ls -l z3-server/ || echo "z3 dir not found"'
 					sh 'ls -l z3-server/'
 					sh 'rm -rf z3-server/dist'
-					sh 'cp -R zrp-portfolio/dist z3-server/ '
-				}
+					sh 'cp -R $BUILD_DIR z3-server/ '
 			}
 		}
 		stage('Comit and Push z3') {
