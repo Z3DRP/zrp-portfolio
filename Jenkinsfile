@@ -37,13 +37,14 @@ pipeline {
 		}
 		stage('Update F Server') {
 			steps {
-				dir('z3-server') {
+				
+				dir("${env.WORKSPACE}") {
 					sh 'pwd'
-					sh 'ls -l ../'
-					sh 'ls -l ../dist'
-					sh 'rm -rf dist'
-					sh 'ls -l ./'
-					sh 'cp -R ../zrp-portfolio/dist ./ echo "Error: dist dir does not exists"'
+					sh 'ls -l zrp-portfolio/dist || echo "zrp dist not found"'
+					sh 'ls -l z3-server || echo "z3 dir not found"'
+					sh 'ls -l z3-server/dist'
+					sh 'rm -rf z3-server/dist'
+					sh 'cp -R zrp-portfolio/dist z3-server/ echo "Error: dist dir does not exists"'
 				}
 			}
 		}
