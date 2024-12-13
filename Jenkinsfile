@@ -45,9 +45,9 @@ pipeline {
 					sh 'ls -l z3-server/ || echo "z3 dir not found"'
 					sh 'ls -l z3-server/'
 					sh 'ls -l $FS_DIST'
-					sh 'rm -rf $FS_DIST'
+					sh 'rm -rf z3-server/dist'
 					sh 'ls -l $FE_DIST'
-					sh 'cp -R $FE_DIST $FS_DIST/ '
+					sh 'cp -R dist z3-server/ '
 			}
 		}
 		stage('Comit and Push z3') {
