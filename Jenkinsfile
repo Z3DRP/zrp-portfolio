@@ -51,7 +51,7 @@ pipeline {
 		stage('Comit and Push z3') {
 			steps {
 				dir('z3-server') {
-				withCredentials([string(credentialsId: 'gh-tkn', variable: 'TKN')]) {
+				withCredentials([string(credentialsId: 'gh-tkn-str', variable: 'TKN')]) {
 						sh '''
 							git config user.name "Jenkins-CI"
 							git config user.email "apex1421@outlook.com"
