@@ -29,9 +29,9 @@ pipeline {
 		stage('debug dist') {
 			steps {
 				dir('zrp-portfolio') {
-					sh 'echo "zrp portfolio dir"'
+					sh 'pwd'
 					sh 'ls -l'
-					sh 'ls -l zrp-portfolio/'
+					sh 'ls -l dist || echo "No root dist"'
 				}
 			}
 		}
