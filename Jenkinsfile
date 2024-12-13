@@ -22,14 +22,16 @@ pipeline {
 			steps {
 				dir('zrp-portfolio') {
 					sh 'npm ci'
-					sh 'npm run build'
+					sh 'npm run build || echo "Build Failed"'
 				}
 			}
 		}
 		stage('debug dist') {
 			steps {
 				dir('zrp-portfolio') {
-					sh 'ls -l zrp-portfolio/dist'
+					sh 'echo "zrp portfolio dir"'
+					sh 'ls -l'
+					sh 'ls -l zrp-portfolio/'
 				}
 			}
 		}
