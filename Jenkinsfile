@@ -45,7 +45,7 @@ pipeline {
 					sh 'ls -l z3-server/ || echo "z3 dir not found"'
 					sh 'ls -l z3-server/'
 					sh 'rm -rf z3-server/dist'
-					sh 'cp -R zrp-portfolio/dist z3-server/ echo "Error: dist dir does not exists"'
+					sh 'cp -R zrp-portfolio/dist z3-server/ '
 				}
 			}
 		}
