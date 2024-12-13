@@ -41,8 +41,8 @@ pipeline {
 					sh 'pwd'
 					sh 'ls -l ../'
 					sh 'ls -l ../dist'
-					sh 'rm -rf ../dist'
-					sh 'cp -R ../dist ../ echo "Error: dist dir does not exists"'
+					sh 'rm -rf dist'
+					sh 'cp -R ../dist ./ echo "Error: dist dir does not exists"'
 				}
 			}
 		}
