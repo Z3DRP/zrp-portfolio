@@ -15,12 +15,6 @@ import {
 import { NavLink } from "react-router-dom";
 
 function Navbar({ toggleTheme, theme }) {
-  const [menuAnchor, setMenuAnchor] = useState();
-
-  const handleMenuOpen = (event) => setMenuAnchor(event.currentTarget);
-
-  const handleMenuClose = (event) => setMenuAnchor(undefined);
-
   return (
     <AppBar
       position="static"
@@ -62,14 +56,6 @@ function Navbar({ toggleTheme, theme }) {
             ),
           )}
         </Grid2>
-
-        <IconButton
-          onClick={toggleTheme}
-          color="inherit"
-          aria-label="Toggle Theme"
-        >
-          {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
-        </IconButton>
       </Toolbar>
     </AppBar>
   );
