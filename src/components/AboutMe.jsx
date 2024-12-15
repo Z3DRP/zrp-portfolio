@@ -12,24 +12,10 @@ import {
   Linkedin,
   Brain,
 } from "lucide-react";
-import { NavLink } from "react-router-dom";
-import { useToast } from "./ToastService";
-import hellIfIknow from "../assets/images/hellifiknow.png";
 import Spinner from "./Spinner";
 import zlogo from "../assets/images/zlogo1.png";
 import Zypher from "./Zypher";
-import { SuccessToast, ErrorToast } from "./Toasts";
-import {
-  Container,
-  Grid,
-  Card,
-  CardContent,
-  CardHeader,
-  Stack,
-  Typography,
-  Box,
-  Button,
-} from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Description from "./portfolioDescription";
 
 export default function AboutMe() {
